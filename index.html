@@ -3,147 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CoorgCars - Premium Used Car Marketplace</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>CoorgCars - Buy & Sell Cars in Kodagu</title>
 
 <style>
-
-:root{
---bg:#08111f;
---card:#111827;
---orange:#ff6b00;
---white:#ffffff;
---muted:#94a3b8;
---green:#22c55e;
-}
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Inter',sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:var(--bg);
-color:white;
-overflow-x:hidden;
+background:#0b0f19;
+color:#fff;
 }
 
 .navbar{
 position:fixed;
 top:0;
 width:100%;
-padding:20px 6%;
+background:#111827;
+padding:15px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-backdrop-filter:blur(20px);
-background:rgba(0,0,0,.35);
 z-index:999;
 }
 
 .logo{
-font-size:32px;
-font-weight:800;
-color:var(--orange);
+font-size:28px;
+font-weight:bold;
+color:#ff6b00;
 }
 
-.nav-links{
-display:flex;
-gap:30px;
-}
-
-.nav-links a{
-color:white;
+.nav-buttons a{
 text-decoration:none;
-font-weight:600;
+margin-left:10px;
+padding:10px 16px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.login{
+border:1px solid #fff;
+color:#fff;
+}
+
+.sell{
+background:#ff6b00;
+color:#fff;
 }
 
 .hero{
 height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600');
-background-size:cover;
-background-position:center;
+background:url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1600') center/cover;
 display:flex;
 align-items:center;
-padding:0 6%;
+padding:20px;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
-max-width:700px;
-}
-
-.hero-tag{
-display:inline-block;
-padding:10px 18px;
-border-radius:999px;
-background:rgba(255,255,255,.1);
-backdrop-filter:blur(15px);
-margin-bottom:25px;
-font-size:14px;
+position:relative;
+z-index:2;
+max-width:600px;
 }
 
 .hero h1{
-font-size:72px;
-line-height:1;
-font-weight:800;
-margin-bottom:20px;
+font-size:52px;
+line-height:1.1;
+margin-bottom:15px;
 }
 
 .hero p{
 font-size:20px;
-color:#d1d5db;
-margin-bottom:35px;
-line-height:1.6;
+margin-bottom:25px;
+color:#ddd;
 }
 
-.search-card{
-background:rgba(255,255,255,.12);
-backdrop-filter:blur(20px);
-padding:25px;
-border-radius:24px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-margin-top:30px;
-}
-
-.search-card select{
-padding:16px;
-border:none;
-border-radius:14px;
-font-size:15px;
-outline:none;
-}
-
-.search-btn{
-background:var(--orange);
-color:white;
-border:none;
-border-radius:14px;
-font-weight:700;
-cursor:pointer;
-}
-
-.hero-buttons{
+.cta{
 display:flex;
 gap:15px;
-margin-top:30px;
+flex-wrap:wrap;
 }
 
 .btn{
-padding:16px 30px;
-border-radius:14px;
-font-weight:700;
+padding:15px 25px;
+border-radius:12px;
 text-decoration:none;
+font-weight:bold;
 }
 
 .btn-primary{
-background:var(--orange);
+background:#ff6b00;
 color:white;
 }
 
@@ -152,216 +111,178 @@ background:white;
 color:black;
 }
 
-.stats{
-margin-top:-80px;
-padding:0 6%;
-position:relative;
-z-index:10;
+.search-box{
+background:white;
+padding:20px;
+border-radius:16px;
+margin:30px auto;
+max-width:1000px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
 }
 
-.stats-grid{
+.search-box select,
+.search-box button{
+padding:14px;
+border:none;
+border-radius:10px;
+}
+
+.search-box button{
+background:#ff6b00;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.stats{
+padding:40px 20px;
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+max-width:1000px;
+margin:auto;
 }
 
 .stat{
-background:#111827;
-padding:30px;
-border-radius:24px;
+background:#131c2e;
+padding:25px;
+border-radius:16px;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.3);
 }
 
 .stat h2{
+color:#ff6b00;
 font-size:38px;
-color:var(--orange);
-margin-bottom:8px;
-}
-
-.section{
-padding:80px 6%;
 }
 
 .section-title{
-font-size:42px;
-font-weight:800;
-margin-bottom:40px;
+text-align:center;
+margin:40px 0 20px;
+font-size:32px;
 }
 
-.cars-grid{
+.cars{
+padding:20px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+max-width:1200px;
+margin:auto;
 }
 
-.car-card{
-background:var(--card);
-border-radius:24px;
+.card{
+background:#131c2e;
+border-radius:16px;
 overflow:hidden;
-transition:.3s;
 }
 
-.car-card:hover{
-transform:translateY(-8px);
-}
-
-.car-card img{
+.card img{
 width:100%;
-height:240px;
+height:200px;
 object-fit:cover;
 }
 
-.car-content{
-padding:22px;
-}
-
-.badge{
-display:inline-block;
-background:var(--green);
-padding:8px 14px;
-border-radius:999px;
-font-size:12px;
-font-weight:700;
-margin-bottom:15px;
+.card-content{
+padding:15px;
 }
 
 .price{
-font-size:32px;
-font-weight:800;
-margin-bottom:10px;
-}
-
-.car-title{
+color:#ff6b00;
 font-size:24px;
-font-weight:700;
-margin-bottom:10px;
-}
-
-.car-meta{
-color:var(--muted);
-line-height:1.8;
-}
-
-.car-buttons{
-display:flex;
-gap:10px;
-margin-top:20px;
-}
-
-.car-buttons a{
-flex:1;
-text-align:center;
-padding:14px;
-border-radius:12px;
-text-decoration:none;
-font-weight:700;
-}
-
-.call{
-background:white;
-color:black;
+font-weight:bold;
+margin:10px 0;
 }
 
 .whatsapp{
-background:#22c55e;
+display:block;
+text-align:center;
+background:#25d366;
+padding:12px;
+text-decoration:none;
 color:white;
+font-weight:bold;
+border-radius:10px;
+margin-top:10px;
 }
 
-@media(max-width:900px){
+.dealer{
+padding:50px 20px;
+max-width:700px;
+margin:auto;
+}
 
+.dealer form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.dealer input{
+padding:15px;
+border:none;
+border-radius:10px;
+}
+
+.dealer button{
+padding:15px;
+background:#ff6b00;
+border:none;
+color:white;
+font-weight:bold;
+border-radius:10px;
+}
+
+footer{
+background:#111827;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+@media(max-width:768px){
 .hero h1{
-font-size:48px;
+font-size:40px;
 }
-
-.search-card{
-grid-template-columns:1fr;
 }
-
-.stats-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.nav-links{
-display:none;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <nav class="navbar">
-
-<div class="logo">🚗 CoorgCars</div>
-
-<div class="nav-links">
-<a href="#">Cars</a>
-<a href="#">Dealers</a>
-<a href="#">Sell Car</a>
-<a href="#">Contact</a>
+<div class="logo">CoorgCars</div>
+<div class="nav-buttons">
+<a href="#dealer" class="sell">Sell Car</a>
+<a href="#" class="login">Login</a>
 </div>
-
 </nav>
 
 <section class="hero">
-
 <div class="hero-content">
+<h1>Find Your Perfect Car In Kodagu</h1>
+<p>Trusted used cars from verified dealers across Coorg.</p>
 
-<div class="hero-tag">
-Verified Dealers • Direct WhatsApp Contact
+<div class="cta">
+<a href="#cars" class="btn btn-primary">Browse Cars</a>
+<a href="#dealer" class="btn btn-secondary">Register Dealer</a>
 </div>
-
-<h1>
-Find Your Perfect Car In Kodagu
-</h1>
-
-<p>
-Browse trusted used cars from verified dealers across Madikeri, Kushalnagar, Virajpet and Somwarpet.
-</p>
-
-<div class="hero-buttons">
-<a href="#" class="btn btn-primary">Browse Cars</a>
-<a href="#" class="btn btn-secondary">Register Dealer</a>
 </div>
-
-<div class="search-card">
-
-<select>
-<option>Brand</option>
-<option>Maruti</option>
-<option>Hyundai</option>
-<option>Toyota</option>
-</select>
-
-<select>
-<option>Budget</option>
-<option>₹2L</option>
-<option>₹5L</option>
-<option>₹10L</option>
-</select>
-
-<select>
-<option>Fuel</option>
-<option>Petrol</option>
-<option>Diesel</option>
-</select>
-
-<button class="search-btn">
-Search Cars
-</button>
-
-</div>
-
-</div>
-
 </section>
 
-<section class="stats">
+<div class="search-box">
+<select><option>Brand</option></select>
+<select><option>Budget</option></select>
+<select><option>Fuel</option></select>
+<button>Search Cars</button>
+</div>
 
-<div class="stats-grid">
+<section class="stats">
+<div class="stat">
+<h2>10+</h2>
+<p>Trusted Dealers</p>
+</div>
 
 <div class="stat">
 <h2>100+</h2>
@@ -369,63 +290,57 @@ Search Cars
 </div>
 
 <div class="stat">
-<h2>10+</h2>
-<p>Verified Dealers</p>
-</div>
-
-<div class="stat">
-<h2>1000+</h2>
-<p>Monthly Visitors</p>
+<h2>Kodagu</h2>
+<p>Coverage</p>
 </div>
 
 <div class="stat">
 <h2>24/7</h2>
 <p>Support</p>
 </div>
+</section>
 
+<h2 class="section-title" id="cars">Featured Cars</h2>
+
+<section class="cars">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200">
+<div class="card-content">
+<h3>Maruti 800</h3>
+<div class="price">₹1,80,000</div>
+<p>2010 • Petrol • 65,000 KM</p>
+<a class="whatsapp" href="https://wa.me/918050644800">Contact Dealer</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200">
+<div class="card-content">
+<h3>Swift VDI</h3>
+<div class="price">₹4,50,000</div>
+<p>2018 • Diesel • 58,000 KM</p>
+<a class="whatsapp" href="https://wa.me/918050644800">Contact Dealer</a>
+</div>
 </div>
 
 </section>
 
-<section class="section">
+<section class="dealer" id="dealer">
+<h2 class="section-title">Dealer Registration</h2>
 
-<h2 class="section-title">
-Featured Vehicles
-</h2>
-
-<div class="cars-grid">
-
-<div class="car-card">
-
-<img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d">
-
-<div class="car-content">
-
-<div class="badge">VERIFIED</div>
-
-<div class="price">₹1.80 Lakh</div>
-
-<div class="car-title">Maruti 800</div>
-
-<div class="car-meta">
-📍 Kushalnagar<br>
-⛽ Petrol<br>
-⚙️ Manual<br>
-🛣️ 65,000 KM
-</div>
-
-<div class="car-buttons">
-<a href="tel:8050644800" class="call">Call</a>
-<a href="https://wa.me/918050644800" class="whatsapp">WhatsApp</a>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+<form>
+<input type="text" placeholder="Dealer Name">
+<input type="tel" placeholder="Mobile Number">
+<input type="text" placeholder="Location">
+<button type="submit">Register Dealer</button>
+</form>
 </section>
+
+<footer>
+<p>© 2026 CoorgCars.in | Contact: 8050644800</p>
+</footer>
 
 </body>
 </html>
+
